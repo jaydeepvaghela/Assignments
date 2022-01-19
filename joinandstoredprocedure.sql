@@ -1,12 +1,12 @@
 /* First Table : Employee */
 
-CREATE TABLE Employee
+CREATE TABLE Employees
 (
 	emp_id int primary key,
 	emp_name varchar(20)
 );
 
-INSERT INTO Employee VALUES
+INSERT INTO Employees VALUES
 (01, 'Jaydeep'),
 (02, 'Viraj'),
 (03, 'Mohan'),
@@ -14,17 +14,17 @@ INSERT INTO Employee VALUES
 (05, 'Rahul'),
 (06, 'Amrut');
 
-SELECT * FROM Employee;
+SELECT * FROM Employees;
 
 /* Second Table : Organization */
 
-CREATE TABLE Organization (
+CREATE TABLE Industry (
 	company_id int primary key, 
-	emp_id int, 
+	emp_id int foreign key references Employees(emp_id), 
     points int, 
 	status varchar(20));
 
-INSERT INTO Organization VALUES
+INSERT INTO Industry VALUES
 (101, 1, 73, 'PASS'),
 (102, 3, 72, 'PASS'),
 (103, 5, 74, 'PASS'),
@@ -36,17 +36,17 @@ INSERT INTO Organization VALUES
 (109, 6, 68, 'PASS'),
 (110, 4, 98, 'PASS');
 
-SELECT * FROM Organization;
+SELECT * FROM Industry;
 
 /* Third Table : Profile */
 
-CREATE TABLE Profile (
+CREATE TABLE ProfileData (
 	city varchar(20), 
 	email varchar(20), 
-    company_id int, 
+    company_id int foreign key references Industry(company_id), 
 	post varchar(50));
 
-INSERT INTO Profile VALUES 
+INSERT INTO ProfileData VALUES 
 ('Delhi', 'mohan@gmail.com', 102, 'Trainee Software Developer'),
 ('Mumbai', 'jaydeep@gmail.com', 101, 'Business Analyst'),
 ('Kolkata', 'rahul@gmail.com', 103, 'Laravel Developer'),
@@ -54,26 +54,26 @@ INSERT INTO Profile VALUES
 
 /* The INNER JOIN keyword selects all rows from both the tables as long as the condition satisfies.  */
 SELECT emp_name, points, status, city, email,
-post from Employee e INNER JOIN Organization r on
-e.emp_id = r.emp_id INNER JOIN Profile a on 
+post from Employees e INNER JOIN Industry r on
+e.emp_id = r.emp_id INNER JOIN ProfileData a on 
 a.company_id = r.company_id;
 
 /* FULL JOIN creates the result-set by combining result of both LEFT JOIN and RIGHT JOIN. */
 SELECT emp_name, points, status, city, email,
-post from Employee e FULL OUTER JOIN Organization r on
-e.emp_id = r.emp_id FULL OUTER JOIN Profile a on 
+post from Employees e FULL OUTER JOIN Industry r on
+e.emp_id = r.emp_id FULL OUTER JOIN ProfileData a on 
 a.company_id = r.company_id;
 
 /* This join returns all the rows of the table on the left side of the join and matching rows for the table on the right side of join. */
 SELECT emp_name, points, status, city, email,
-post from Employee e LEFT JOIN Organization r on
-e.emp_id = r.emp_id LEFT JOIN Profile a on 
+post from Employees e LEFT JOIN Industry r on
+e.emp_id = r.emp_id LEFT JOIN ProfileData a on 
 a.company_id = r.company_id;
 
 /* This join returns all the rows of the table on the right side of the join and matching rows for the table on the left side of join. */
 SELECT emp_name, points, status, city, email,
-post from Employee e RIGHT JOIN Organization r on
-e.emp_id = r.emp_id RIGHT JOIN Profile a on 
+post from Employees e RIGHT JOIN Industry r on
+e.emp_id = r.emp_id RIGHT JOIN ProfileData a on 
 a.company_id = r.company_id;
 
 /* A stored procedure is a prepared SQL code that  can be reused over and over again. */
