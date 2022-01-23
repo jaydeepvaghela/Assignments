@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <title>Admin Dashboard</title>
+  <style>
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:rgb(71, 76, 82);
+  overflow-x:hidden;
+  padding-top: 60px;
+
+}
+
+.sidenav a {
+  padding: 10px 10px 10px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgba(255, 255, 255, 0.774);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color:white;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.navbar .btn
+{
+  background-color:white;
+}
+
+#main {
+  padding: 16px;
+}
+
+  </style>
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+        <button  type="submit" id="openNav" onclick="openNav()" class="btn"><i class="fas fa-bars fa-lg"></i></button>
+        <div style="display: flex">
+          <input type="search" style="margin-right: 10px; border-radius: 30px;" class="form-control" placeholder="Search" >          
+          <button class="btn" id="searchbtn" type="submit" style=" color:rgba(71, 76, 82, 0.7); margin-right: 5px;"><i class="fas fa-search fa-lg"></i></button>
+          <button class="btn" type="submit" style=" color:red; margin-right: 5px;"><i class="fas fa-bell fa-lg"></i></button>
+          <button class="btn" type="submit" style="color:blue; margin-right: 5px;"><i class="fas fa-comment-dots fa-lg"></i></button>
+        </div>
+      </nav>
+
+      <div id="mySidenav" class="sidenav">
+
+        
+        <a href="#" class="closebtn" onclick="closeNav()">&times;</a> 
+        <a href="#">Dashboard</a>
+        <a href="#">Charts</a>
+        <a href="#">Widgets</a>
+        <a href="#">Tables</a>
+        <a href="#">Full Width</a>
+        <a href="#">Forms</a>
+        <a href="#">Contact</a>
+      </div>
+      
+      <div id="main">
+        
+
+      </div>
+      
+      <script>
+        
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("openNav").style.marginLeft="0";
+        document.body.style.backgroundColor = "white";
+        
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("openNav").style.marginLeft="0";
+        document.body.style.backgroundColor = "white";
+      }
+      </script>
+  </body>
+</html>
