@@ -29,7 +29,7 @@ $('#result').click(function () {
     $('#result').hide();
     $('#next').hide();
     $.each(answers, function (ques, answer) {
-        if ($('input:radio[name="' + ques + '"]:checked').val() == answer)
+        if($('input:radio[name="' + ques + '"]:checked').val() == answer)
             score += 1;
     });
     $('#questions').append("<center><h1 style='color:#FFFFFF'> You obtained: " + score + "/5 </h1><center>");
