@@ -32,5 +32,5 @@ $('#result').click(function () {
         if($('input:radio[name="' + ques + '"]:checked').val() == answer)
             score += 1;
     });
-    $('#questions').append("<center><h1 style='color:#FFFFFF'> You obtained: " + score + "/5 </h1><center>");
+    $('#questions').append("<center><h1 style='color:#ffffff'> You obtained: " + score + "/5 </h1><center>");
 });
