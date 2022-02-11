@@ -18,7 +18,7 @@ body{
   position: fixed;
   width: 200px;
   height: 100%;
-  background-color: steelblue;
+  background-color: rgb(72, 128, 173);
   padding: 30px 0;
 }
 
@@ -43,7 +43,7 @@ body{
 .wrapper .sidebar ul li :hover{
   background-color:rgb(255, 255, 255);
   cursor: pointer;
-  color: steelblue;
+  color: rgb(72, 128, 173);
 }
 
 .wrapper .main_content{
@@ -55,7 +55,7 @@ body{
   padding: 20px;
   font-size: large;
   background-color: rgba(70, 131, 180, 0.185);
-  color:steelblue;
+  color:rgb(72, 128, 173);
   font-weight: bold;
 }
 
