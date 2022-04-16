@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main" id="questions">
+        <h1> Test yourself and help us learn more about the mind and brain.</h1>
+        <button class="btn" id="btn1">start test</button>
+        <div class="ques" id="1">
+            <span style="color:#ffffff;font-weight: bold; font-size: 25px;">1. What does the abbreviation HTML stand
+                for?<br><br></span>
+            <input type="radio" name="radio1" value="HyperText Markup Language" onclick="radioHandler(this)"><span>
+                HyperText Markup Language</span> <br> <br>
+            <input type="radio" name="radio1" value="HighText Markup Language" onclick="radioHandler(this)"><span>
+                HighText
+                Markup Language</span> <br> <br>
+            <input type="radio" name="radio1" value="HighText Markdown Language" onclick="radioHandler(this)"><span>
+                HighText
+                Markleft Language</span> <br> <br>
+            <input type="radio" name="radio1" value="None of the above" onclick="radioHandler(this)"><span> None of the
+                above</span>
+            <br><br>
+        </div>
+        <div class="ques" id="2">
+            <span style="color: #ffffff; font-weight: bold;  font-size: 25px;"> 2. What are the attributes used to
+                change the size of an image?<br><br> </span>
+            <input type="radio" name="radio2" value="Width and Height" onclick="radioHandler(this)"> <span> Width
+                and Height </span><br> <br>
+            <input type="radio" name="radio2" value="Big and Small" onclick="radioHandler(this)"><span> Big and
+                Small </span><br> <br>
+            <input type="radio" name="radio2" value="Top and Bottom" onclick="radioHandler(this)"><span> Top and
+                Bottom </span> <br> <br>
+            <input type="radio" name="radio2" value="None of the above" onclick="radioHandler(this)"><span> None
+                of the above </span><br> <br>
+        </div>
+        <div class="ques" id="3">
+            <span style="color: #ffffff; font-weight: bold;  font-size: 25px;">3. Colors are defined in HTML using?
+                <br><br> </span>
+            <input type="radio" name="radio3" value="RGB Values" onclick="radioHandler(this)"><span> RGB Values</span>
+            <br><br>
+            <input type="radio" name="radio3" value="HEX Values" onclick="radioHandler(this)"><span> HEX Values </span>
+            <br><br>
+            <input type="radio" name="radio3" value="RGBA Values" onclick="radioHandler(this)"><span> RGBA Values
+            </span>
+            <br><br>
+            <input type="radio" name="radio3" value="All of the above" onclick="radioHandler(this)"><span> All of
+                the above </span><br><br>
+        </div>
+        <div class="ques" id="4">
+            <span style="color: #ffffff; font-weight: bold;  font-size: 25px;">4. The CSS inside HTML elements used
+                alongside style attribute is called?<br><br> </span>
+            <input type="radio" name="radio4" value="Inline CSS" onclick="radioHandler(this)"><span> Inline CSS </span>
+            <br><br>
+            <input type="radio" name="radio4" value="Internal CSS" onclick="radioHandler(this)"><span> Internal
+                CSS </span><br><br>
+            <input type="radio" name="radio4" value="External CSS" onclick="radioHandler(this)"><span> External
+                CSS </span><br><br>
+            <input type="radio" name="radio4" value="None of the above" onclick="radioHandler(this)"> <span> None
+                of the above </span><br><br>
+        </div>
+        <div class="ques" id="5">
+            <span style="color: #ffffff; font-weight: bold; font-size: 25px;">5. What are the main components of the
+                frontend of any working website? <br><br> </span>
+            <input type="radio" name="radio5" value="HTML, CSS, JavaScript" onclick="radioHandler(this)">
+            <span> HTML, CSS, JavaScript</span> <br><br>
+            <input type="radio" name="radio5" value="HTML only" onclick="radioHandler(this)"><span> HTML only </span>
+            <br><br>
+            <input type="radio" name="radio5" value="JavaScript only" onclick="radioHandler(this)">
+            <span> JavaScript only</span> <br><br>
+            <input type="radio" name="radio5" value="Node.js" onclick="radioHandler(this)"><span> Node.js
+            </span><br><br>
+        </div>
+
+        <div class="ques" id="6">
+            <button id="result" class="btn">Check Score</button>
+        </div>
+
+        <button id="next" class="btn" disabled>Next <i class="fas fa-arrow-circle-right"></i></button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="file.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+.main{
+    position: static;
+    padding: 40px;
+    width: 40%;
+    margin-left: 27%;
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 8%;
+    letter-spacing: 0.2rem;
+    transition: all 0.3s ease 0s;
+    box-shadow: 10px 10px 10px #ebc482;
+    background-image: linear-gradient(to right, #ff9671, #fd9a68, #fa9e5e, #f6a255, #f0a74d, #edac50, #ebb053, #e8b556, #e8ba64, #e9bf71, #e9c37f, #e9c88c);
+}
+
+.main:hover {
+    transform:scale(.95);
+    box-shadow: none;
+    background-image: linear-gradient(to left, #ff9671, #fd9a68, #fa9e5e, #f6a255, #f0a74d, #edac50, #ebb053, #e8b556, #e8ba64, #e9bf71, #e9c37f, #e9c88c);
+}
+
+h1{
+    color:#f0e2b6;
+    transition: all 0.3s ease 0s;
+}
+h1:hover{
+    color:#f0f086e0;
+}
+.btn{
+    background-image: linear-gradient(to left, #ff9671, #fd9a68, #fa9e5e, #f6a255, #f0a74d, #edac50, #ebb053, #e8b556, #e8ba64, #e9bf71, #e9c37f, #e9c88c);
+    padding:20px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 2px;
+    color: #FFFFFF;
+    cursor: pointer;
+    letter-spacing: 0.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+
+.btn:hover{
+    background-image: linear-gradient(to top, #ff9671, #fd9a68, #fa9e5e, #f6a255, #f0a74d, #edac50, #ebb053, #e8b556, #e8ba64, #e9bf71, #e9c37f, #e9c88c);
+    color: #f0f086e0;
+}
+
+#next:hover{
+    background-image: linear-gradient(to right, #ff9671, #fd9a68, #fa9e5e, #f6a255, #f0a74d, #edac50, #ebb053, #e8b556, #e8ba64, #e9bf71, #e9c37f, #e9c88c);
+}
+
+span{
+    color:#fcf5ae;
+    letter-spacing: 0.1rem;
+    font-weight: bolder;
+    transition: all 0.3s ease 0s;
+}
+
+.ques:not(.active) {
+    display:none;
+}
+
+input{
+    color: linear-gradient(to bottom, #ff9671, #ff9e6c, #ffa768, #ffb064, #ffba61, #ffc260, #ffcb60, #ffd361, #fedc64, #fde567, #fbef6c, #f9f871); 
+    accent-color:#ff9671;
+    width: 30px;
+}
+span:hover{
+    color:greenyellow;
+}
+
+
+
+
+

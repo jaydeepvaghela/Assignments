@@ -1,0 +1,278 @@
+MongoDB server version: 5.0.5
+
+> show dbs
+admin        0.000GB
+config       0.000GB
+information  0.000GB
+local        0.000GB
+
+> use information
+switched to db information
+
+> show collections
+employee
+
+> db.employee.insert({
+... empid: 'E01',
+... empname: 'Jaydeep Vaghela',
+... city: 'Ahemdabad',
+... gender: 'male'
+... })
+
+WriteResult({ "nInserted" : 1 })
+
+db.employee.insertMany([
+... {
+... empid:'E02',
+... empname: 'Sagar Vaghela',
+... city: 'Ahemdabad',
+... gender:'male'
+... },
+
+... {
+... empid:'E03',
+... empname: 'Payal Vaghela',
+... city: 'Bhavnagar',
+... gender:'female'
+... },
+
+... {
+... empid:'E04',
+... empname: 'Raj Vaghela',
+... city: 'Bhavnagar',
+... gender: 'male'
+... }
+... ])
+
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61e8f27d949ce8254a13f436"),
+                ObjectId("61e8f27d949ce8254a13f437"),
+                ObjectId("61e8f27d949ce8254a13f438")
+        ]
+}
+
+> db.employee.find()
+{ "_id" : ObjectId("61e8eb2c949ce8254a13f435"), "empid" : "E01", "empname" : "Jaydeep Vaghela", "city" : "Ahemdabad", "gender" : "male" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f436"), "empid" : "E02", "empname" : "Sagar Vaghela", "city" : "Ahemdabad", "gender" : "male" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f437"), "empid" : "E03", "empname" : "Payal Vaghela", "city" : "Bhavnagar", "gender" : "female" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f438"), "empid" : "E04", "empname" : "Raj Vaghela", "city" : "Bhavnagar", "gender" : "male" }
+
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("61e8eb2c949ce8254a13f435"),
+        "empid" : "E01",
+        "empname" : "Jaydeep Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f436"),
+        "empid" : "E02",
+        "empname" : "Sagar Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f437"),
+        "empid" : "E03",
+        "empname" : "Payal Vaghela",
+        "city" : "Bhavnagar",
+        "gender" : "female"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f438"),
+        "empid" : "E04",
+        "empname" : "Raj Vaghela",
+        "city" : "Bhavnagar",
+        "gender" : "male"
+}
+
+> db.employee.find({city:'Ahemdabad'}).count()
+2
+> db.employee.find().sort({city:1}).limit(3)
+{ "_id" : ObjectId("61e8eb2c949ce8254a13f435"), "empid" : "E01", "empname" : "Jaydeep Vaghela", "city" : "Ahemdabad", "gender" : "male" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f436"), "empid" : "E02", "empname" : "Sagar Vaghela", "city" : "Ahemdabad", "gender" : "male" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f437"), "empid" : "E03", "empname" : "Payal Vaghela", "city" : "Bhavnagar", "gender" : "female" }
+
+> db.employee.find().sort({city:1}).limit(3).pretty()
+{
+        "_id" : ObjectId("61e8eb2c949ce8254a13f435"),
+        "empid" : "E01",
+        "empname" : "Jaydeep Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f436"),
+        "empid" : "E02",
+        "empname" : "Sagar Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f437"),
+        "empid" : "E03",
+        "empname" : "Payal Vaghela",
+        "city" : "Bhavnagar",
+        "gender" : "female"
+}
+
+> db.employee.find().forEach(function(prof) { print(prof.empname + ' is from ' +prof.city)})
+Jaydeep Vaghela is from Ahemdabad
+Sagar Vaghela is from Ahemdabad
+Payal Vaghela is from Bhavnagar
+Raj Vaghela is from Bhavnagar
+
+> db.employee.find({gender:'male'})
+{ "_id" : ObjectId("61e8eb2c949ce8254a13f435"), "empid" : "E01", "empname" : "Jaydeep Vaghela", "city" : "Ahemdabad", "gender" : "male" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f436"), "empid" : "E02", "empname" : "Sagar Vaghela", "city" : "Ahemdabad", "gender" : "male" }
+{ "_id" : ObjectId("61e8f27d949ce8254a13f438"), "empid" : "E04", "empname" : "Raj Vaghela", "city" : "Bhavnagar", "gender" : "male" }
+
+> db.employee.find({gender:'male'}).pretty()
+{
+        "_id" : ObjectId("61e8eb2c949ce8254a13f435"),
+        "empid" : "E01",
+        "empname" : "Jaydeep Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f436"),
+        "empid" : "E02",
+        "empname" : "Sagar Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f438"),
+        "empid" : "E04",
+        "empname" : "Raj Vaghela",
+        "city" : "Bhavnagar",
+        "gender" : "male"
+}
+
+db.employee.update({empname : 'Raj Vaghela'},
+... {
+... empname : 'Raj Vaghela',
+... empid : 'E04',
+... city : 'Bhavnagar',
+... gender : 'male'
+... },
+... {
+... upsert: true }
+... )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.employee.find({empname: 'Raj Vaghela'}).pretty()
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f438"),
+        "empname" : "Raj Vaghela",
+        "empid" : "E04",
+        "city" : "Bhavnagar",
+        "gender" : "male"
+}
+> db.employee.update({empname :'Raj Vaghela'},
+... {
+... $set: {
+... city: 'vadodara'
+... }
+... })
+
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.find({empname:'Raj Vaghela'}).pretty()
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f438"),
+        "empname" : "Raj Vaghela",
+        "empid" : "E04",
+        "city" : "vadodara",
+        "gender" : "male"
+}
+
+> db.employee.update({empname: 'Jaydeep Vaghela'},{$rename : {city:'location'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.employee.find({empname:'Jaydeep Vaghela'}).pretty()
+{
+        "_id" : ObjectId("61e8eb2c949ce8254a13f435"),
+        "empid" : "E01",
+        "empname" : "Jaydeep Vaghela",
+        "gender" : "male",
+        "location" : "Ahemdabad"
+}
+
+> db.employee.remove({empname: 'Jaydeep Vaghela'})
+WriteResult({ "nRemoved" : 1 })
+
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f436"),
+        "empid" : "E02",
+        "empname" : "Sagar Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f437"),
+        "empid" : "E03",
+        "empname" : "Payal Vaghela",
+        "city" : "Bhavnagar",
+        "gender" : "female"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f438"),
+        "empname" : "Raj Vaghela",
+        "empid" : "E04",
+        "city" : "vadodara",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f9bfd132ed5d11b1e705"),
+        "empname" : "raj",
+        "empid" : "E04",
+        "city" : "bhavnagar",
+        "gender" : "male"
+}
+
+> db.employee.remove({empname:'raj'})
+WriteResult({ "nRemoved" : 1 })
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f436"),
+        "empid" : "E02",
+        "empname" : "Sagar Vaghela",
+        "city" : "Ahemdabad",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f437"),
+        "empid" : "E03",
+        "empname" : "Payal Vaghela",
+        "city" : "Bhavnagar",
+        "gender" : "female"
+}
+{
+        "_id" : ObjectId("61e8f27d949ce8254a13f438"),
+        "empname" : "Raj Vaghela",
+        "empid" : "E04",
+        "city" : "vadodara",
+        "gender" : "male"
+}
+
+> db.employee.createIndex({name:'text'})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+
+db.employee.find({$text : { $search:"\"raj\""}}).pretty()
+> {
+... "_id" : ObjectId("61e901b3970b8ec914257a5e"),
+... "empid" : "E05",
+... "empname" : "raj",
+... "city" : "Rajkot",
+... "gender" : "male"
+... }
